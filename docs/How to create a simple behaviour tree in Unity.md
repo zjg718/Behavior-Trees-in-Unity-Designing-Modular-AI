@@ -18,3 +18,16 @@ decorators: in that case, they have a single child and they may impact its proce
 Action nodes
 
 Action nodes are more diverse but you can usually group them in two categories: the checks and the tasks. Checks are simple if-like nodes that condition whether or not this branch is valid. Tasks are more complex nodes that perform a real update of the character or its environment.
+
+Why use behaviour trees?
+Something really nice with behaviour trees is that prioritising actions is easy: because the success of the child nodes conditions how the branch and therefore the tree runs, combining composite “and”s and “or”s can directly give you a set of prioritised features. They natively handle sequences, interruptions and fallbacks.
+
+Also, as you can see, this structure is pretty easy to read and visualise — you just follow the branches by priority and, at each node, check whether it succeeds or not to know if you can continue on this branch or must go to the next one.
+
+But the biggest advantage of behaviour trees is that they are highly modular and scalable: by removing or adding a branch, you essentially add or remove a feature to your character; similarly, it’s pretty simple to copy a sub-branch and paste it somewhere else to copy-paste part of your behaviour. Some sub-trees can even be completely self-contained autonomous bits of logic that you can then re-import and re-use in another character’s behaviour tree to quickly implement chunks of a system (like following a target, patrolling between a set of points, et caetera).
+
+Moreover, this modularity means that you can build your tree piece by piece and have an incremental design strategy.
+
+Finally, note that contrary to finite state machines where, by definition, states are as isolated from each other as possible, behaviour trees are far more flexible to leaking information between nodes. Even though each node is executed on its own and lives its own life, it is pretty common to have some shared data state that can be accessed from various points in your tree to have global (although context-specific) variables.
+
+
