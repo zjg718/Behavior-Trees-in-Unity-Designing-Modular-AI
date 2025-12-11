@@ -19,8 +19,6 @@ The skeleton just has a single animation in its animator, it has a BoxCollider a
 
 This physics layer will help optimise the checks for nearby enemy units in our code ;)
 
-Part of my behaviour tree will also re-use the simple patrolling system I talked about in this other tutorial, so I’ve prepared a few empty game objects to act as waypoints for my patrol route:
-
 <img width="800" height="456" alt="image" src="https://github.com/user-attachments/assets/2f3e5919-9e04-4e64-8c4e-6446f4d61dd4" />
 
 Now, it’s time to dive into the programming of our behaviour tree! ;)
